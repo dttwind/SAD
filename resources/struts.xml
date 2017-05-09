@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="conststruts.devMode" value="true"/>
+	<!-- Struts2的所有Action都需位于package下 -->
+	<package name="lee" extends="struts-default">
+		<action name="user_*" method="{1}" class="com.SAB.action.UserAction">
+			<result name="success" type="redirect">/registers</result>
+			<result name="error">/WEB-INF/content/index.jsp</result>
+			<result name="register_success"  type="redirect">/login</result>
+		</action>
+		
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
